@@ -81,9 +81,9 @@ const server = http.createServer(async (req, res) => {
 
     // Filter by "Sort by"
     if (params.sortBy && params.sortBy === "asc") {
-      filteredUsers.sort((a, b) => a.age - b.age);
+      filteredUsers = filteredUsers.toSorted((a, b) => a.age - b.age);
     } else if (params.sortBy && params.sortBy === "desc") {
-      filteredUsers.sort((a, b) => b.age - a.age);
+      filteredUsers = filteredUsers.toSorted((a, b) => b.age - a.age);
     }
 
     // Filter by "limit"
