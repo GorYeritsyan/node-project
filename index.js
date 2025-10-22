@@ -68,12 +68,12 @@ const server = http.createServer(async (req, res) => {
     if (params.name && params.age) {
       filteredUsers = users.filter(
         (user) =>
-          user.name.toLowerCase() === params.name.toLowerCase() &&
+          user.name.toLowerCase().includes(params.name.toLowerCase()) &&
           user.age === +params.age
       );
     } else if (params.name) {
-      filteredUsers = users.filter(
-        (user) => user.name.toLowerCase() === params.name.toLowerCase()
+      filteredUsers = users.filter((user) =>
+        user.name.toLowerCase().includes(params.name.toLowerCase())
       );
     } else if (params.age) {
       filteredUsers = users.filter((user) => user.age === +params.age);
